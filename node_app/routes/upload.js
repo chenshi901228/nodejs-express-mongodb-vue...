@@ -1,10 +1,8 @@
-
 var express = require('express');
 var router = express.Router();
 
 var fs = require('fs');
 var multer = require('multer');
-
 
 const { addImg } = require('../service/imgService')
 
@@ -16,7 +14,6 @@ var storage = multer.diskStorage({
 		cb(null, Date.now() + "-" + file.originalname);
 	}
 });
-
 // 创建文件夹
 // var createFolder = function (folder) {
 // 	try {
@@ -28,7 +25,6 @@ var storage = multer.diskStorage({
 // 		fs.mkdirSync(folder);
 // 	}
 // };
-
 // var uploadFolder = './upload/';
 // createFolder(uploadFolder);
 
@@ -43,7 +39,5 @@ router.post('/single', upload.single('file'), async function (req, res, next) {
 	let data = { url }
 	res.send(await addImg(data))
 });
-
-
 // 导出模块（在 app.js 中引入）
 module.exports = router;

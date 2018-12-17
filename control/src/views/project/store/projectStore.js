@@ -1,5 +1,7 @@
 
 
+const baseUrl = "http://39.104.121.78"
+
 import { MessageBox } from 'element-ui';
 export default {
     namespaced: true,
@@ -23,7 +25,7 @@ export default {
         getData_async({ commit }, payload) {
             commit("loadState", true)
             axios
-                .post("http://localhost:3000/getProject", {
+                .post(baseUrl + "/getProject", {
                     type: payload.default_type,
                     currentPage: payload.currentPage,
                     pageSize: payload.pageSize
@@ -44,7 +46,7 @@ export default {
         delProject_async({ commit }, payload) {
             commit("loadState", true)
             axios
-                .post("http://localhost:3000/delProject", {
+                .post(baseUrl + "/delProject", {
                     _id: payload._id,
                     type: payload.default_type,
                     currentPage: payload.currentPage,

@@ -28,7 +28,7 @@
                 class="upload-demo"
                 ref="upload"
                 drag
-                action="http://localhost:3000/upload/single"
+                action="http://39.104.121.78/upload/single"
                 multiple
                 :on-success="upload_success">
                 <i class="el-icon-upload"></i>
@@ -46,7 +46,7 @@
                 <el-upload
                     class="avatar-uploader"
                     ref="upload1"
-                    action="http://localhost:3000/upload/single"
+                    action="http://39.104.121.78/upload/single"
                     :limit=1
                     :on-success="code_success">
                     <img v-if="form.link_imageUrl" :src="form.link_imageUrl" class="avatar">
@@ -86,7 +86,7 @@ export default {
   methods: {
     onSubmit() {
       axios
-        .post("http://localhost:3000/addProject", this.form)
+        .post("http://39.104.121.78/addProject", this.form)
         .then(res => {
           if (res.data.status == "ok") {
             this.$alert("添加项目成功", "提示", {

@@ -1,6 +1,8 @@
 
 import { MessageBox } from 'element-ui';
 
+const baseUrl = "http://39.104.121.78"
+
 export default {
     namespaced: true,
     state: {
@@ -23,7 +25,7 @@ export default {
         getData_async({ commit }, payload) {
             commit("loadState", true)
             axios
-                .post("http://localhost:3000/news/getNews", {
+                .post(baseUrl + "/news/getNews", {
                     type: payload.default_type,
                     currentPage: payload.currentPage,
                     pageSize: payload.pageSize
@@ -44,7 +46,7 @@ export default {
         delNews_async({ commit }, payload) {
             commit("loadState", true)
             axios
-                .post("http://localhost:3000/news/delNews", {
+                .post(baseUrl + "/news/delNews", {
                     _id: payload._id,
                     type: payload.default_type,
                     currentPage: payload.currentPage,

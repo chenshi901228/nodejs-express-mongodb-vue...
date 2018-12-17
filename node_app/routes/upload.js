@@ -1,4 +1,4 @@
-var express = require('express');
+﻿var express = require('express');
 var router = express.Router();
 
 var fs = require('fs');
@@ -34,7 +34,8 @@ var upload = multer({ storage: storage });
 /* POST upload listing. */
 router.post('/single', upload.single('file'), async function (req, res, next) {
 	var file = req.file;
-	var url = __dirname.replace(/routes/,"") + file.path
+	var url =file.path.replace("public","http://39.104.121.78")
+	// var url = __dirname.replace(/routes/,"") + file.path
 	// 接收文件成功后返回数据给前端
 	let data = { url }
 	res.send(await addImg(data))

@@ -20,7 +20,7 @@
                 class="upload-demo"
                 ref="upload"
                 drag
-                action="http://localhost:3000/upload/single"
+                action="http://39.104.121.78/upload/single"
                 multiple
                 :on-success="upload_success">
                 <i class="el-icon-upload"></i>
@@ -56,7 +56,7 @@ export default {
   methods: {
     onSubmit() {
       axios
-        .post("http://localhost:3000/news/addNews", this.form)
+        .post("http://39.104.121.78/news/addNews", this.form)
         .then(res => {
           if (res.data.status == "ok") {
             this.$alert("添加项目成功", "提示", {

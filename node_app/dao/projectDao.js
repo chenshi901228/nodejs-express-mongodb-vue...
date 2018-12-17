@@ -1,4 +1,4 @@
-var mongoose = require('mongoose');
+﻿var mongoose = require('mongoose');
 var fs = require('fs')
 
 module.exports.addProject = async pro => {
@@ -60,10 +60,10 @@ module.exports.delProject = async ({ _id, type, pageSize, currentPage }) => {
         .populate("in_img")
     // 删除图片
     data[0].in_img.forEach(async ({ url }) => {
-        await fs.unlink(url, () => { })
+        await fs.unlink(__dirname.replace("dao","public") + url.replace("http://39.104.121.78",""), () => { })
     })
     if (data[0].link_imageUrl) {
-        await fs.unlink(data[0].link_imageUrl, () => { })
+        await fs.unlink(__dirname.replace("dao","public") + data[0].link_imageUrl.replace("http://39.104.121.78",""), () => { })
     }
     await mongoose.model("project")
         .deleteOne({

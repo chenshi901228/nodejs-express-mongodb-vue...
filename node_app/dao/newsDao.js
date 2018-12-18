@@ -62,9 +62,7 @@ module.exports.delNews = async ({ _id, type, pageSize, currentPage }) => {
         .populate("in_img")
     // 删除图片
     data[0].in_img.forEach(async ({ url }) => {
-        await fs.unlink(url, () => {
-            console.log("删除图片" + url + "成功")
-        })
+        await fs.unlink(__dirname.replace("dao","public") + url.replace("http://39.104.121.78",""), () => { })
     })
     await mongoose.model("news")
         .deleteOne({

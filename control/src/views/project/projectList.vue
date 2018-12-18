@@ -41,7 +41,8 @@
         </el-table-column>
         <el-table-column
           label="项目介绍"
-          width="180">
+          width="180"
+          show-overflow-tooltip>
           <template slot-scope="scope">
             <span>{{ scope.row.introduce }}</span>
           </template>
